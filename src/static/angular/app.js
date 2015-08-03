@@ -2,6 +2,7 @@
 
 var dashApp = angular.module('dash.app', [
     'ngRoute',
+    'door3.css',
     'dash.controllers'
 ]);
 
