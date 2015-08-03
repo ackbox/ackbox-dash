@@ -1,0 +1,27 @@
+<li data-row="3" data-col="5" data-sizex="5" data-sizey="4">
+    <header class="panel-heading">
+        Clock <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        <a href="javascript:;" class="fa fa-cog"></a>
+                        <a href="javascript:;" class="fa fa-times"></a>
+                        </span>
+    </header>
+    <section class="panel">
+        <div class="panel-body">
+            <div class="profile-nav alt">
+                <section class="panel">
+                    <div class="user-heading alt clock-row terques-bg">
+                        <h1 ng-bind="month_day_label"></h1>
+                        <p class="text-left" ng-bind="year_weekday_label"></p>
+                        <p class="text-left" ng-bind="time_label"></p>
+                    </div>
+                    <ul id="clock">
+                        <li id="sec" style="-webkit-transform: rotate(270deg);"></li>
+                        <li id="hour" style="-webkit-transform: rotate(293deg);"></li>
+                        <li id="min" style="-webkit-transform: rotate(276deg);"></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+</li>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+    <section id="container">
+        <!--header start-->
+        {% include 'includes/header.html' %}
+        <!--header end-->
+        <!--sidebar start-->
+        {% include 'includes/left_sidebar.html' %}
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                {% block content %}{% endblock %}
+            </section>
+        </section>
+        <!--main content end-->
+        <!--right sidebar start-->
+        {% include 'includes/right_sidebar.html' %}
+        <!--right sidebar end-->
+    </section>
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/ackbox-dash.js') }}"></script>
+</body>
+
+</html>
