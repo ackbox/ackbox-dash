@@ -1,12 +1,10 @@
 $(function() {
-
     setInterval( function() {
         var seconds = new Date().getSeconds();
         var sdegree = seconds * 6;
         var srotate = "rotate(" + sdegree + "deg)";
 
         $("#sec").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
-
     }, 1000 );
 
 
@@ -17,7 +15,6 @@ $(function() {
         var hrotate = "rotate(" + hdegree + "deg)";
 
         $("#hour").css({"-moz-transform" : hrotate, "-webkit-transform" : hrotate});
-
     }, 1000 );
 
 
@@ -27,7 +24,6 @@ $(function() {
         var mrotate = "rotate(" + mdegree + "deg)";
 
         $("#min").css({"-moz-transform" : mrotate, "-webkit-transform" : mrotate});
-
     }, 1000 );
 
 });

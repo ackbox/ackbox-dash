@@ -7,7 +7,7 @@ ul#clock li{
     width: 185px;
     height: 185px;
     margin: -95px auto 0;
-    background: url(../images/clockface.png) no-repeat;
+    background: url(clockface.png) no-repeat;
     list-style: none;
 }
 
@@ -20,17 +20,17 @@ ul#clock li{
 }
 
 #sec {
-    background: url(../images/sechand.png);
+    background: url(sechand.png);
     z-index: 3;
     overflow: hidden;
 }
 
 #min {
-    background: url(../images/minhand.png);
+    background: url(minhand.png);
     z-index: 2;
 }
 
 #hour {
-    background: url(../images/hourhand.png);
+    background: url(hourhand.png);
     z-index: 1;
 }
