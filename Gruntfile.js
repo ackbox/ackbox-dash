@@ -6,23 +6,19 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        copy: {
-            dist: {
-                files: [{
-                    // for bootstrap fonts
-                    expand: true,
-                    dot: true,
-                    cwd: 'bower_components/bootstrap/dist',
-                    src: ['fonts/*.*'],
-                    dest: '<%= assets_dist_dir %>/'
-                }, {
-                    // for font-awesome
-                    expand: true,
-                    dot: true,
-                    cwd: 'bower_components/components-font-awesome',
-                    src: ['fonts/*.*'],
-                    dest: '<%= assets_dist_dir %>/'
-                }]
+        bower_concat: {
+            all: {
+                dest: '<%= assets_dist_dir %>/js/bower.js',
+                cssDest: '<%= assets_dist_dir %>/css/bower.css',
+                dependencies: {
+                    'customSelect': 'jquery-ui'
+                },
+                mainFiles: {
+                    'gridster': ['dist/jquery.gridster.js', 'dist/jquery.gridster.css']
+                },
+                bowerOptions: {
+                    relative: false
+                }
             }
         },
 
@@ -31,8 +27,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'bower_components/bootstrap/dist/css/bootstrap.css',
-                    'bower_components/components-font-awesome/css/font-awesome.css',
-                    'bower_components/gridster/dist/jquery.gridster.css',
+                    '<%= assets_dist_dir %>/css/bower.css',
                     '<%= assets_src_dir %>/css/*.css'
                 ],
                 dest: '<%= assets_dist_dir %>/css/<%= pkg.name %>.css'
@@ -45,24 +40,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: [
-                    'bower_components/jquery/dist/jquery.js',
-                    'bower_components/angular/angular.js',
-                    'bower_components/angular-route/angular-route.js',
-                    'bower_components/angular-css/angular-css.js',
-                    'bower_components/gridster/dist/jquery.gridster.js',
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
-                    'bower_components/jquery.easing/js/jquery.easing.js',
-                    'bower_components/moment/moment.js',
-                    'bower_components/underscore/underscore.js',
-                    'bower_components/clndr/src/clndr.js',
-                    'bower_components/jquery.scrollTo/jquery.scrollTo.js',
-                    'bower_components/slimScroll/jquery.slimScroll.js',
-                    'bower_components/dcjqaccordion/js/jquery.dcjqaccordion.2.7.js',
-                    'bower_components/jquery.cookie/jquery.cookie.js',
-                    'bower_components/jquery.nicescroll/jquery.nicescroll.js',
-                    'bower_components/jscrollpane/script/jquery.jscrollpane.js',
+                    '<%= assets_dist_dir %>/js/bower.js',
                     '<%= assets_src_dir %>/**/*.js',
-                    'bower_components/customSelect/jquery.customSelect.js'
                 ],
                 dest: '<%= assets_dist_dir %>/js/<%= pkg.name %>.js'
             }
@@ -103,7 +82,7 @@ module.exports = function(grunt) {
                 '<%= assets_src_dir %>/**/*.css',
                 'bower_components/**/*.js',
                 'bower_components/**/*.css'
-                ],
+            ],
             tasks: ['jshint', 'copy', 'concat', 'concat_css']
         }
     });
@@ -115,8 +94,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-concat-css');
+    grunt.loadNpmTasks('grunt-bower-concat');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('default', ['jshint', 'qunit', 'copy', 'concat', 'concat_css', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'concat_css', 'uglify']);
 
 };

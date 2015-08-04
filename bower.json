@@ -26,6 +26,8 @@
     "gridster": "~0.5.6",
     "angularjs": "~1.4",
     "angular-route": "~1.4",
-    "angular-css": "~1.0.7"
+    "angular-css": "~1.0.7",
+    "angular-bootstrap": "~0.13.2",
+    "jquery-ui": "~1.11.4"
   }
 }

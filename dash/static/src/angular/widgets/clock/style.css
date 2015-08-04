@@ -1,17 +1,19 @@
-ul#clock li{
+ul#clock li {
     border: none;
 }
 
 #clock {
     position: relative;
-    width: 185px;
+    width: 185px !important;
     height: 185px;
     margin: -95px auto 0;
     background: url(clockface.png) no-repeat;
     list-style: none;
 }
 
-#sec, #min, #hour {
+#sec,
+#min,
+#hour {
     position: absolute;
     width: 15px;
     height: 185px;
